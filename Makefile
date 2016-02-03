@@ -34,18 +34,20 @@ LIBFT_LIB	=	libft/libft.a
 
 FRAMEWORK 	= 	-framework OpenGL -framework AppKit
 
-SRCBASE		= 	main.c\
+SRCBASE		= 	\
+				colors.c													\
 				ft_change_z.c												\
 				ft_draw.c													\
 				ft_get_data.c												\
 				ft_get_vect.c												\
-				ft_image_pixel_put.c										\
 				ft_move.c													\
 				ft_pixel_by_pixel.c											\
 				ft_rotate.c													\
 				ft_zoom.c													\
+				main.c
 
-INCBASE		=	fdf.h\
+INCBASE		=	\
+				fdf.h														\
 				get_next_line.h												\
 				libft.h
 

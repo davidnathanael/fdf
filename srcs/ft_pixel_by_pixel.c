@@ -3,14 +3,26 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pixel_by_pixel.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanukya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ddela-cr <ddela-cr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/15 09:58:26 by amanukya          #+#    #+#             */
-/*   Updated: 2016/02/01 13:06:29 by ddela-cr         ###   ########.fr       */
+/*   Created: 2016/01/15 09:58:26 by ddela-cr          #+#    #+#             */
+/*   Updated: 2016/02/03 16:09:02 by ddela-cr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
+void	ft_image_pixel_put(t_env *env, int x, int y, int color)
+{
+	if (x <= 0 || x >= WIN_W || y >= WIN_H || y < 0)
+		return ;
+	env->data[(y * env->size_line)\
+	+ (x * env->bpp / 8)] = (color & 0xFF);
+	env->data[(y * env->size_line)\
+	+ (x * env->bpp / 8) + 1] = (color & 0xFF00) >> 8;
+	env->data[(y * env->size_line)\
+	+ (x * env->bpp / 8) + 2] = (color & 0xFF0000) >> 16;
+}
 
 void	ft_pixel_by_pixel_with_y(t_env *env, t_vect *vect, int clr, float slope)
 {

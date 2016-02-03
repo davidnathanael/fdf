@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanukya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ddela-cr <ddela-cr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/06 15:36:03 by amanukya          #+#    #+#             */
-/*   Updated: 2016/02/01 15:51:45 by ddela-cr         ###   ########.fr       */
+/*   Created: 2016/01/06 15:36:03 by ddela-cr          #+#    #+#             */
+/*   Updated: 2016/02/03 16:13:53 by ddela-cr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,29 @@
 # include <mlx.h>
 # include <stdio.h>
 
-# define WIN_H 1200
-# define WIN_W 1900
+# define WIN_H	1200
+# define WIN_W	1900
 
-# define BLUE 0x0000FF
-# define RED 0xFF0000
-# define GREEN 0x00FF00
-# define WHITE 0xFFFFFF
+# define BLUE	0x0000FF
+# define RED	0xFF0000
+# define GREEN	0x00FF00
+# define WHITE	0xFFFFFF
+# define BROWN 	0x302013
+# define YELLOW 0xF4EE60
+
+typedef enum	e_theme
+{
+	NORMAL,
+	RELIEF,
+}				t_theme;
+
+typedef enum	e_level
+{
+	UNDER_SEA,
+	SEA,
+	ALT,
+	ABOVE_SEA,
+}				t_level;
 
 typedef enum	e_bool
 {
@@ -83,6 +99,7 @@ typedef struct	s_env
 	float		angle_a;
 	int			origin_x;
 	int			origin_y;
+	int			theme;
 	t_point		**map;
 }				t_env;
 
@@ -106,13 +123,15 @@ void			ft_rotate_up(t_env *e);
 void			ft_decrease_z(t_env *e);
 void			ft_increase_z(t_env *e);
 
+void			ft_change_theme(t_env *env);
+int				ft_choose_color(int theme, int z1, int z2);
+
 void			ft_set_vect(t_env *e, t_vect *vect, int i, int j);
 void			ft_set_vect2(t_env *e, t_vect *vect, int i, int j);
 
+void			ft_image_pixel_put(t_env *e, int x, int y, int color);
 void			ft_pixel_by_pixel_with_y(t_env *e, t_vect *vect,
 										int color, float slope);
 void			ft_pixel_by_pixel_with_x(t_env *e, t_vect *vect, int color);
-
-void			ft_image_pixel_put(t_env *e, int x, int y, int col);
 
 #endif

@@ -3,33 +3,21 @@
 /*                                                        :::      ::::::::   */
 /*   ft_draw.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: amanukya <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ddela-cr <ddela-cr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/01/07 07:43:35 by amanukya          #+#    #+#             */
-/*   Updated: 2016/02/01 15:49:49 by ddela-cr         ###   ########.fr       */
+/*   Created: 2016/01/07 07:43:35 by ddela-cr          #+#    #+#             */
+/*   Updated: 2016/02/03 16:13:57 by ddela-cr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
-
-int		ft_choose_color(int z1, int z2)
-{
-	if (z1 != 0 && z2 != 0 && z1 == z2)
-		return (RED);
-	else if (z1 - z2 == 0)
-		return (WHITE);
-	else if (z1 <= 0 && z2 <= 0)
-		return (BLUE);
-	else
-		return (GREEN);
-}
 
 void	ft_draw_line(t_env *env, t_vect *vect, int z1, int z2)
 {
 	float		slope;
 	int			color;
 
-	color = ft_choose_color(z1, z2);
+	color = ft_choose_color(env->theme, z1, z2);
 	slope = (float)(vect->x1 - vect->x2) / (float)(vect->y1 - vect->y2);
 	if (vect->y1 != vect->y2 && fabs(slope) < 1)
 		ft_pixel_by_pixel_with_y(env, vect, color, slope);
