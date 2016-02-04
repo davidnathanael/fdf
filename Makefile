@@ -6,7 +6,7 @@
 #    By: amanukya <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/12/16 09:52:27 by amanukya          #+#    #+#              #
-#    Updated: 2016/01/29 15:37:02 by ddela-cr         ###   ########.fr        #
+#    Updated: 2016/02/04 08:28:26 by ddela-cr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,7 +48,6 @@ SRCBASE		= 	\
 
 INCBASE		=	\
 				fdf.h														\
-				get_next_line.h												\
 				libft.h
 
 SRCS		=	$(addprefix $(SRCDIR), $(SRCBASE))

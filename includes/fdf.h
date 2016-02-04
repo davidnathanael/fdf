@@ -6,7 +6,7 @@
 /*   By: ddela-cr <ddela-cr@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/01/06 15:36:03 by ddela-cr          #+#    #+#             */
-/*   Updated: 2016/02/03 16:13:53 by ddela-cr         ###   ########.fr       */
+/*   Updated: 2016/02/04 08:28:54 by ddela-cr         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include "libft.h"
-# include "get_next_line.h"
 # include <math.h>
 # include <stdlib.h>
 # include <fcntl.h>
@@ -31,7 +30,7 @@
 # define RED	0xFF0000
 # define GREEN	0x00FF00
 # define WHITE	0xFFFFFF
-# define BROWN 	0x302013
+# define BROWN	0x302013
 # define YELLOW 0xF4EE60
 
 typedef enum	e_theme

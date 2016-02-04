@@ -3,113 +3,120 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: amanukya <marvin@42.fr>                    +#+  +:+       +#+         #
+#    By: ddela-cr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2015/11/26 10:01:03 by amanukya          #+#    #+#              #
-#    Updated: 2016/01/04 13:53:51 by amanukya         ###   ########.fr        #
+#    Created: 2015/11/27 16:43:54 by ddela-cr          #+#    #+#              #
+#    Updated: 2016/02/04 08:27:26 by ddela-cr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
+NAME = libft.a
 
-CC       = clang
-NAME     = libft.a
-CFLAGS   = -Wextra -Wall -Werror -g
-INC      = -I ./includes/
+OBJS_PATH = objs/
 
-LISTDIR  = sources
-SRCDIR   = sources
-OBJDIR   = obj
-INCDIR   = includes
+SRCS		=	ft_bzero.c\
+ft_memset.c\
+ft_memcpy.c\
+ft_memccpy.c\
+ft_memmove.c\
+ft_memchr.c\
+ft_memcmp.c\
+ft_strlen.c\
+ft_tablen.c\
+ft_wstrlen.c\
+ft_wcharlen.c\
+ft_strdup.c\
+ft_wstrdup.c\
+ft_strcpy.c\
+ft_strncpy.c\
+ft_strcat.c\
+ft_strncat.c\
+ft_strlcat.c\
+ft_strchr.c\
+ft_strnchr.c\
+ft_strrchr.c\
+ft_strstr.c\
+ft_strreplace.c\
+ft_strnstr.c\
+ft_strcmp.c\
+ft_strncmp.c\
+ft_atoi.c\
+ft_atoi_uns_long.c\
+ft_isalpha.c\
+ft_isdigit.c\
+ft_isalnum.c\
+ft_isascii.c\
+ft_isprint.c\
+ft_toupper.c\
+ft_tolower.c\
+ft_memalloc.c\
+ft_memdel.c\
+ft_strnew.c\
+ft_strdel.c\
+ft_strclr.c\
+ft_striter.c\
+ft_striteri.c\
+ft_strmap.c\
+ft_strmapi.c\
+ft_strequ.c\
+ft_strnequ.c\
+ft_strsub.c\
+ft_wstrsub.c\
+ft_strjoin.c\
+ft_wstrjoin.c\
+ft_strtrim.c\
+ft_strsplit.c\
+ft_itoa.c\
+ft_itoa_long_long.c\
+ft_itoa_base.c\
+ft_putchar.c\
+ft_putwchar.c\
+ft_putstr.c\
+ft_putwstr.c\
+ft_putendl.c\
+ft_putnbr.c\
+ft_putchar_fd.c\
+ft_putstr_fd.c\
+ft_putendl_fd.c\
+ft_putnbr_fd.c\
+ft_swap.c\
+ft_strupcase.c\
+ft_strlowcase.c\
+ft_isspace.c\
+ft_strcapitalize.c\
+get_next_line.c\
 
-FILES    = $(SRCDIR)/ft_isalpha.c \
-		   $(SRCDIR)/ft_isdigit.c \
-		   $(SRCDIR)/ft_isalnum.c \
-		   $(SRCDIR)/ft_isascii.c \
-		   $(SRCDIR)/ft_isprint.c \
-		   $(SRCDIR)/ft_toupper.c \
-		   $(SRCDIR)/ft_tolower.c \
-		   $(SRCDIR)/ft_memset.c \
-		   $(SRCDIR)/ft_bzero.c \
-		   $(SRCDIR)/ft_memcpy.c \
-		   $(SRCDIR)/ft_memccpy.c \
-		   $(SRCDIR)/ft_memmove.c \
-		   $(SRCDIR)/ft_memchr.c \
-		   $(SRCDIR)/ft_memcmp.c \
-		   $(SRCDIR)/ft_memalloc.c \
-		   $(SRCDIR)/ft_memdel.c \
-		   $(SRCDIR)/ft_strlen.c \
-		   $(SRCDIR)/ft_strdup.c \
-		   $(SRCDIR)/ft_strcpy.c \
-		   $(SRCDIR)/ft_strncpy.c \
-		   $(SRCDIR)/ft_strcat.c \
-		   $(SRCDIR)/ft_strncat.c \
-		   $(SRCDIR)/ft_strlcat.c \
-		   $(SRCDIR)/ft_strchr.c \
-		   $(SRCDIR)/ft_strrchr.c \
-		   $(SRCDIR)/ft_strstr.c \
-		   $(SRCDIR)/ft_strnstr.c \
-		   $(SRCDIR)/ft_strcmp.c \
-		   $(SRCDIR)/ft_strncmp.c \
-		   $(SRCDIR)/ft_atoi.c \
-		   $(SRCDIR)/ft_strnew.c \
-		   $(SRCDIR)/ft_strdel.c \
-		   $(SRCDIR)/ft_strclr.c \
-		   $(SRCDIR)/ft_striter.c \
-		   $(SRCDIR)/ft_striteri.c \
-		   $(SRCDIR)/ft_strmap.c \
-		   $(SRCDIR)/ft_strmapi.c \
-		   $(SRCDIR)/ft_strequ.c \
-		   $(SRCDIR)/ft_strnequ.c \
-		   $(SRCDIR)/ft_strsub.c \
-		   $(SRCDIR)/ft_strtrim.c \
-		   $(SRCDIR)/ft_strsplit.c \
-		   $(SRCDIR)/ft_itoa.c \
-		   $(SRCDIR)/ft_strjoin.c \
-		   $(SRCDIR)/ft_putchar.c \
-		   $(SRCDIR)/ft_putstr.c \
-		   $(SRCDIR)/ft_putendl.c \
-		   $(SRCDIR)/ft_putnbr.c \
-		   $(SRCDIR)/ft_putchar.c \
-		   $(SRCDIR)/ft_putstr_fd.c \
-		   $(SRCDIR)/ft_putchar_fd.c \
-		   $(SRCDIR)/ft_putendl_fd.c \
-		   $(SRCDIR)/ft_putnbr_fd.c \
-		   $(SRCDIR)/ft_lstnew.c \
-		   $(SRCDIR)/ft_lstdelone.c \
-		   $(SRCDIR)/ft_lstdel.c \
-		   $(SRCDIR)/ft_lstadd.c \
-		   $(SRCDIR)/ft_lstiter.c \
-		   $(SRCDIR)/ft_lstmap.c \
-		   $(SRCDIR)/ft_tablen.c \
-		   $(SRCDIR)/ft_delete_tab.c \
-		   $(SRCDIR)/get_next_line.c
+FLAGS	= -Wall -Wextra -Werror
 
-OBJ     = $(addprefix $(OBJDIR)/, $(FILES:.c=.o))
+INC		= -I ../includes
+
+OBJS = $(SRCS:.c=.o)
 
 .SILENT:
 
-$(addprefix $(OBJDIR)/, %.o) : %.c $(INCDIR)
-	$(CC) $(CFLAGS) -o $@ -c $< $(INC)
+all: $(NAME)
+	echo "\033[38;5;44m☑️  ALL    $(NAMEBASE) is done\033[0m\033[K"
 
-
-$(NAME) : $(OBJDIR) $(OBJ)
-	ar rc $(NAME) $(OBJ)
+$(NAME):
+	printf "\r\033[38;5;11m⌛  MAKE   $(NAMEBASE) please wait ...\033[0m\033[K"
+	gcc -c $(SRCS) $(FLAGS) $(INC)
+	ar rc $(NAME) $(OBJS)
 	ranlib $(NAME)
+	mkdir $(OBJS_PATH)
+	mv $(OBJS) $(OBJS_PATH)
+	echo -en "\r\033[38;5;22m☑️  MAKE   $(NAMEBASE)\033[0m\033[K"
+	echo "\r\033[38;5;184m👥  GROUP MEMBER(S):\033[0m\033[K"
+	echo "\r\033[38;5;15m`cat auteur | sed s/^/\ \ \ \ /g`\033[0m\033[K"
 
-clean :
-	/bin/rm	-fr $(OBJDIR)
+clean:
+	printf "\r\033[38;5;11m⌛  CLEAN  $(NAMEBASE) please wait ...\033[0m\033[K"
+	rm -rf $(OBJS_PATH)
+	printf "\r\033[38;5;11m☑️  CLEAN  $(NAMEBASE) is done\033[0m\033[K"
 
-fclean : clean
-	/bin/rm -fr $(NAME)
+fclean: clean
+	printf "\r\033[38;5;11m⌛  FCLEAN $(NAMEBASE) please wait ...\033[0m\033[K"
+	rm -f $(NAME)
+	printf "\r\033[38;5;11m☑️  FCLEAN  $(NAMEBASE) is done\033[0m\033[K"
 
-re : fclean all
+re: fclean all
 
-all : $(NAME)
-
-$(OBJDIR) :
-	/bin/mkdir $(OBJDIR); \
-		for DIR in $(LISTDIR); \
-		do \
-		/bin/mkdir $(OBJDIR)/$$DIR; \
-		done
-
-.PHONY:	clean fclean re debug
+.PHONY: all clean fclean re
