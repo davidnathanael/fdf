@@ -6,10 +6,11 @@
 #    By: ddela-cr <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/11/27 16:43:54 by ddela-cr          #+#    #+#              #
-#    Updated: 2016/02/04 08:27:26 by ddela-cr         ###   ########.fr        #
+#    Updated: 2016/02/04 08:50:43 by ddela-cr         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 NAME = libft.a
+NAMEBASE = libft
 
 OBJS_PATH = objs/
 
